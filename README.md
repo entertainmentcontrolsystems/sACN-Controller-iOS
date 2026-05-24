@@ -2,25 +2,27 @@
 
 Professional E1.31 sACN lighting controller for iOS/iPadOS.
 
-## Features
+## Quick Start
 
-- **Fixture patching** — Patch fixtures across multiple sACN universes
-- **Manual DMX control** — Per-channel control with 8-bit and 16-bit support
-- **Looks** — Save and recall complete DMX snapshots
-- **Cue Lists** — Sequenced playback with smoothstep crossfades, delays, and timed auto-GO
-- **D16xy converter** — Convert D16xy sACN input to fixture-specific DMX output
-- **Blackout** — Instant kill switch
+### Requirements
+- **macOS 15.0+** with **Xcode 26+**
+- iOS 18.0+ or iPadOS 18.0+ device (or macOS 15.0+ for Mac Catalyst)
 
-## Requirements
+### Build & Run
+1. Clone: `git clone https://github.com/entertainmentcontrolsystems/sACN-Controller-iOS.git`
+2. Open `sACNController.xcodeproj` in Xcode
+3. Select your target device from the scheme menu
+4. Press ⌘R to build and run
 
-- iOS 18.0+ / iPadOS 18.0+ / macOS 15.0+
-- Xcode 26+
+No external dependencies, no CocoaPods, no SPM packages needed.
 
-## Build
-
-1. Open `sACNController.xcodeproj` in Xcode
-2. Select target device
-3. Build → Run
+### What It Does
+- Patch fixtures across multiple sACN universes
+- Manual DMX control with 8-bit and 16-bit support
+- Save/recall Looks (DMX snapshots)
+- Cue Lists with smoothstep crossfades, delays, and timed auto-advance
+- D16xy converter for ETC EOS integration
+- Blackout safety
 
 ## Architecture
 
@@ -29,7 +31,7 @@ sACNController/
 ├── Models/           # FixtureProfile, Look, CueList, etc.
 ├── Engine/           # CueListEngine crossfade engine
 ├── Views/            # SwiftUI screens
-├── SACNSender.swift  # Shared sACN sender (symlinked from CineCalibrator-iOS)
+├── SACNSender.swift  # E1.31 sACN sender (Network framework)
 ├── SACNViewModel.swift
 └── sACNControllerApp.swift
 ```
